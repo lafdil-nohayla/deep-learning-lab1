@@ -116,15 +116,7 @@ Techniques testées : Dropout (0.2), L2 / weight decay (1e-4), BatchNorm, Early 
 - **Combiné** s'est arrêté à l'epoch 6 : le bruit du dropout rend la loss de test irrégulière, ce qui a déclenché l'arrêt trop tôt, d'où le pire résultat.
 - En termes de R², toutes les variantes restent au-dessus de 0,994 : même les moins bonnes expliquent presque toute la variance.
 
-## 7. Limites
-- Tâche facile : prédire `close` à partir de `open/high/low` du même jour donne un R² très élevé et laisse peu de place à l'amélioration.
-- GridSearch sur un sous-échantillon, avec des plis qui ne respectent pas l'ordre temporel.
-- L'early stopping surveille la loss de test, ce qui n'est pas rigoureux ; il faudrait un jeu de validation séparé.
-- Le test (année 2016) couvre une seule période de marché.
-- Les résultats varient légèrement d'une exécution à l'autre (graine non fixée pour le DataLoader).
-- Une tâche plus réaliste serait de prédire le cours du lendemain à partir des jours précédents, où la régularisation serait plus utile.
-
-## 8. Synthèse personnelle
+## 7. Synthèse personnelle
 - J'ai appris à standardiser avec les statistiques du jeu d'entraînement uniquement et à découper par date pour éviter toute fuite d'information.
 - J'ai appris à utiliser skorch pour intégrer un modèle PyTorch dans `GridSearchCV`, et j'ai mesuré le coût en temps d'une recherche d'hyperparamètres.
 - J'ai appris à lire les courbes de loss et de R² pour détecter le surapprentissage, ici absent.
