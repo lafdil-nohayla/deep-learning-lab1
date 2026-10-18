@@ -160,8 +160,6 @@ Les températures de l'air et du processus sont fortement corrélées ; la vites
 ## 2.3 Équilibrage par SMOTE
 SMOTE (`k_neighbors=3`) est appliqué **au train uniquement** : avant `[90, 7714, 62, 76, 36]` (Heat, No Failure, Overstrain, Power, Tool Wear), après **7 714 par classe (38 570 lignes)**. Le test reste intact et déséquilibré.
 
-![SMOTE](images/p2_smote.png)
-
 ## 2.4 Architecture
 MLP **6 → 64 → 32 → 5**, ReLU, sortie en logits, perte `CrossEntropyLoss`.
 
